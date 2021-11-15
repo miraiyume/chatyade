@@ -1,0 +1,16 @@
+def soulnumber(s):
+  sn = sum(int(c) for c in s)
+  if sn % 11 == 0:
+    return sn  
+  if sn > 9:
+    return soulnumber(str(sn))
+  return sn
+  
+  
+ybirth = input("あなたの生年月日は？")
+aname = input("相手の名前は？")
+abirth = input(f"{aname}さんの生年月日は？")
+y = soulnumber(ybirth)
+a = soulnumber(abirth)
+print("@", y, a)
+print("相性は（小さいほどよい）", abs(y%11-a%11))
